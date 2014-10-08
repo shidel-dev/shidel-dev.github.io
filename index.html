@@ -61,6 +61,43 @@
       I will show both of these techniques by creating functions to test if two numbers are co-prime (their greatest common divisor is one).
       </p> 
       <script src="https://gist.github.com/shidel-dev/80f6d38f4e691bbd7e91.js"></script>
+      <br>
+      <hr class="divider">
+      <h2 class="text-center">Creating Your Own Ruby Magic</h2>
+      <p class="lead">
+      Working with rails, active_record, and ruby can be a very magical experience. If you do not fight against it, sometimes it seems like it knows what you want before you ask. This is because the language, and library designers are very clever at meta programming (altering the state of the program at run time). I want to show a basic and powerful technique, that I have enjoyed playing around with. One caveat is that you must consider if using these techniques is best for your application, as it can be less predictable then other routes.
+      </p>
+      <p class="lead">
+      What I am going to show is how to using method_missing, and respond_to? in your classes and modules, in order to respond to a variety of custom methods at run time. You can find method_missing under basic_object on ruby docs here..
+      </p>
+      <p class="lead">
+      method_missing will act as a fall back in the case that a method requested is not defined. It presents you with up to three arguments. The first argument will represent the name of the method requested. The second will be an array of the arguments given. The third will be a block if any was given. I will show the use of all three.
+      </p>
+      <p class="lead">
+      This is going to be the basic structure of my example.
+      </p>
+      <script src="https://gist.github.com/shidel-dev/55a4658676096c8cac31.js"></script>
+      <p class="lead">
+      The first Example I am going to show is writing a method to search for a value in a hash and and return an array of the key value pair. This is not a hard to do with the methods provided to you within ruby. The real difference is in the syntax you can use. For example with this example you can write searches like "Magic.find_where_joe(your_hash)", "Magic.find_where_cat(your_hash), and "Magic.find_where_23". The goal is to find the last term in the method name. The first step I want you take note of in the code below of is that I split the method_name into an array by the underscore.
+      </p>
+      <p class="lead">
+      I then validate the the first term is find, and then send it off to the the appropriate method. You can see how 'respond_to?' checks if the given method is really something I want to respond to. Play around with this with the tests I have provided.
+      </p>
+      <script src="https://gist.github.com/shidel-dev/3b4f7ddc2b23b10c67af.js"></script>
+      <p class="lead">
+      Next lets make a method that counts down from a given number and passes an iterator to a given block.The syntax for calling this method will be like "Magic.down_from_9{|num| do something here}", or "Magic.down_from_183{|num| do something here}". This small method will also show off another powerful technique, which is using blocks in your methods.
+      </p>
+      <script src="https://gist.github.com/shidel-dev/e09a4a9ff414d63dd6e0.js"></script>
+      <p class="lead">
+      Lastly lets write a method to find if an array contains a member of a given type. The syntax for using this method will be like "Magic.contains_string?([1,2,7,'hello',95,3])", "Magic.contains_fixnum?(['a',4,'c','z'])", "Magic.contains_symbol?(['hello', 4, Array.new, :cat])", or any other class.
+      </p>
+      <script src="https://gist.github.com/shidel-dev/6e3f1a9217de1dec5f89.js"></script>
+      <p class="lead">
+      Here is the full Example.
+      </p>
+      <script src="https://gist.github.com/shidel-dev/1e6bb0906640bd7bb095.js"></script>
+      <br>
+      <hr class="divider">
     </div>
 
 
