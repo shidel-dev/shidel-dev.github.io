@@ -42,6 +42,25 @@
       Run Length Encoding is a very simple compression algorithm. It simple condenses the number of repeated characters in a file.  wwwwyyhse would become 4w2yse.  Here is a very simple implementation in Clojure.   
       <p>
       <script src="https://gist.github.com/shidel-dev/9e2e82431835a3c66f09.js"></script>
+      <br>
+      <hr class="divider">
+      <h2 class="text-center">Anonymous Recursion in Javascript</h2>
+      <p class="lead">
+     Often recursive techniques require helper functions to handle some of the recursive logic for the main method. Most of the time these method are given not so great names like "fooHelper" which make the code less readable, and pollutes the name-space.
+     </p>
+     <p class="lead">
+      Anonymous functions are a great way to have unnamed functions, and are a great tool in many cases. However since they are unnamed it may not be so intuitive how to use an anonymous function recursively.
+      </p>
+      <p class="lead">
+      Thankfully javaScript makes this quite simple.
+      </p>
+      <p class="lead">
+      The arguments object has a property called "callee" which refers to the currently executing function. This can be used to make recursive calls. Of course you could also use named functions as long as they are not in the global scope, and this would not be a problem.
+      </p>
+      <p class="lead">
+      I will show both of these techniques by creating functions to test if two numbers are co-prime (their greatest common divisor is one).
+      </p> 
+      <script src="https://gist.github.com/shidel-dev/80f6d38f4e691bbd7e91.js"></script>
     </div>
 
 
